@@ -1,3 +1,29 @@
+<?php 
+    $hora = date( format: "H:i");
+    $numero_hora = date ( format: "H");
+    $mensagem = "Bom dia";
+    if ($numero_hora >= 12) $mensagem = "Boa tarde";
+    if ($numero_hora >= 18) $mensagem = "Boa noite";
+
+    $lanches = [
+        [
+            "nome" => "Classic Burguer",
+            "descricao" => "Beef patty, letuce, tomato, onion, pickles, and special sauce",
+            "preco" => "15,00",
+        ],
+        [
+            "nome" => "Cheese Burguer",
+            "descricao" => "Beef patty, cheese, letuce, tomato, onion, pickles, and special sauce",
+            "preco" => "15,00",
+        ],
+        [
+            "nome" => "Bacon Burguer",
+            "descricao" => "Beef patty, bacon, cheese, letuce, tomato, onion, pickles, and special sauce",
+            "preco" => "15,00",
+        ],
+    ]
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -23,6 +49,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
             </svg>
+            <span><?php echo $mensagem ." , são ". $hora ?></span>
         </div>
 
     </nav>
@@ -40,30 +67,16 @@
 
         <h4 id="lanches">🍔 lanches</h4>
         <section>
-            <div class="card">
-                <img src="./assets/images/lanche1.jpg" alt="food">
-                <div class="card-body">
-                    <h5>hamburguer</h5>
-                    <p>hamburguer de carne bovina, queijo, alface, tomate e molho especial</p>
-                    <p class="price">R$ 15,00</p>
+            <?php foreach ($lanches as $lanche): ?>
+                <div class="card">
+                    <img src="./assets/images/lanche1.jpg" alt="food">
+                    <div class="card-body">
+                        <h5><?php echo $lanche["nome"]?></h5>
+                        <p><?php echo $lanche["descricao"]?></p>
+                        <p class="price">R$ <?php echo $lanche["preco"]?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="./assets/images/lanche1.jpg" alt="food">
-                <div class="card-body">
-                    <h5>hamburguer</h5>
-                    <p>hamburguer de carne bovina, queijo, alface, tomate e molho especial</p>
-                    <p class="price">R$ 15,00</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./assets/images/lanche1.jpg" alt="food">
-                <div class="card-body">
-                    <h5>hamburguer</h5>
-                    <p>hamburguer de carne bovina, queijo, alface, tomate e molho especial</p>
-                    <p class="price">R$ 15,00</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </section>
 
         <h4 id="massas">🍝 massas</h4>
