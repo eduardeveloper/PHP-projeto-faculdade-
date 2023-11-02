@@ -39,7 +39,7 @@
     <nav>
         <h1>Epic Food</h1>
         <ul>
-            <li class="active"><a href="/index.html">cardápio</a></li>
+            <li class="active"><a href="./index.php">cardápio</a></li>
             <li><a href="/admin.html">produtos</a></li>
             <li><a href="/new.html">cadastrar</a></li>
         </ul>
